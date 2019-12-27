@@ -1,12 +1,13 @@
 package pwd.allen.command;
 
-import pwd.allen.command.impl.CommandReceiverImpl;
-
 /**
+ * 命令请求者/调用者
+ * 持有命令对象，在需要时通过命令对象触发命令操作完成具体业务逻辑
+ *
  * @author 门那粒沙
  * @create 2019-05-22 17:01
  **/
-public class CommandExecutor {
+public class CommandInvoker {
 
     private Command command;
 

@@ -7,12 +7,10 @@ import pwd.allen.command.CommandReceiver;
  * @create 2019-05-22 21:42
  **/
 public class CommandReceiverImpl implements CommandReceiver {
-    @Override
     public void doSomethingA() {
         System.out.println("命令接收人执行命令A");
     }
 
-    @Override
     public void doSomethingB() {
         System.out.println("命令接收人执行命令B");
     }
