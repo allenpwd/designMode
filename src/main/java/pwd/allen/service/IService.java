@@ -1,4 +1,4 @@
-package pwd.allen.proxy;
+package pwd.allen.service;
 
 /**
  * @author 门那粒沙

@@ -1,8 +1,11 @@
 package pwd.allen.proxy.jdk;
 
-import pwd.allen.proxy.IService;
-import pwd.allen.proxy.ServiceImpl;
+import pwd.allen.service.IService;
+import pwd.allen.service.impl.ServiceImpl;
+import sun.misc.ProxyGenerator;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -27,9 +30,10 @@ public class ProxyFactory implements InvocationHandler {
      *  InvocationHandler h:事件处理,执行目标对象的方法时,会触发事件处理器的方法,会把当前执行目标对象的方法作为参数传入
      */
     public Object getProxyInstance(){
+        Class<?>[] interfaces = target.getClass().getInterfaces();
         return Proxy.newProxyInstance(
                 target.getClass().getClassLoader(),
-                target.getClass().getInterfaces(),
+                interfaces,
                 this
         );
     }
@@ -65,5 +69,17 @@ public class ProxyFactory implements InvocationHandler {
         // 执行方法   【代理对象】
         System.out.println(proxy.sayHello("allen"));
         System.out.println(proxy.add(12, 345));
+
+        //输出代理对象类的字节码到磁盘中，可以用反编译工具看到：
+        // 代理类继承Proxy实现了IService，重载了父类的方法并在其中调用InvocationHandler.invoke方法
+        try {
+            byte[] bytes = ProxyGenerator.generateProxyClass("$Proxy0", new Class[]{IService.class});
+            FileOutputStream os = new FileOutputStream("C:\\Users\\lenovo\\Desktop\\$Proxy0.class");
+            os.write(bytes);
+            os.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

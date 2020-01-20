@@ -1,4 +1,6 @@
-package pwd.allen.proxy;
+package pwd.allen.service.impl;
+
+import pwd.allen.service.IService;
 
 /**
  * @author 门那粒沙
@@ -13,5 +15,9 @@ public class ServiceImpl implements IService {
     @Override
     public Integer add(Integer a, Integer b) {
         return a + b;
+    }
+
+    public final String finalMethod(String val) {
+        return "this is a final method:" + val;
     }
 }
