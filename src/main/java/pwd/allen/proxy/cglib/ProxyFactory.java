@@ -50,6 +50,7 @@ public class ProxyFactory implements MethodInterceptor {
      * @return
      * @throws Throwable
      */
+    @Override
     public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
         System.out.println("方法执行前:" + method.getName());
         //执行目标对象方法
