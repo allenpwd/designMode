@@ -13,6 +13,8 @@ public class HandlerA extends Handler {
     public void execute(Request request) {
         //处理自己的事，然后交由下一任处理者处理请求
         System.out.println("请求处理者A处理请求");
-        if (next != null) next.execute(request);
+        if (next != null) {
+            next.execute(request);
+        }
     }
 }

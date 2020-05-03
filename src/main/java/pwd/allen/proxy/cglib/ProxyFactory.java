@@ -4,8 +4,8 @@ import net.sf.cglib.core.DebuggingClassWriter;
 import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
-import pwd.allen.service.IService;
-import pwd.allen.service.impl.ServiceImpl;
+import pwd.allen.common.service.IService;
+import pwd.allen.common.service.impl.ServiceImpl;
 
 import java.lang.reflect.Method;
 
@@ -30,7 +30,7 @@ public class ProxyFactory implements MethodInterceptor {
      */
     public <T> T getInstance(Class<T> clazz) {
         // 代理类class文件存入本地磁盘方便我们反编译查看源码
-        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "C:\\Users\\lenovo\\Desktop");
+        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, System.getProperty("user.home") + "\\Desktop");
 
         Enhancer enhancer = new Enhancer();
         // 设置enhancer对象的父类

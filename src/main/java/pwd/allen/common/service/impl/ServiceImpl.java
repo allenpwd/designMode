@@ -1,6 +1,6 @@
-package pwd.allen.service.impl;
+package pwd.allen.common.service.impl;
 
-import pwd.allen.service.IService;
+import pwd.allen.common.service.IService;
 
 /**
  * @author 门那粒沙

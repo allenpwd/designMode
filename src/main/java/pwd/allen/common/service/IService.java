@@ -1,4 +1,4 @@
-package pwd.allen.service;
+package pwd.allen.common.service;
 
 /**
  * @author 门那粒沙

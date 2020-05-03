@@ -1,7 +1,7 @@
 package pwd.allen.proxy.jdk;
 
-import pwd.allen.service.IService;
-import pwd.allen.service.impl.ServiceImpl;
+import pwd.allen.common.service.IService;
+import pwd.allen.common.service.impl.ServiceImpl;
 import sun.misc.ProxyGenerator;
 
 import java.io.FileOutputStream;
@@ -16,8 +16,12 @@ import java.lang.reflect.Proxy;
  * @create 2019-07-06 18:38
  **/
 public class ProxyFactory implements InvocationHandler {
-    //维护一个目标对象
+
+    /**
+     * 维护被代理的目标对象
+     */
     private Object target;
+
     public ProxyFactory(Object target){
         this.target=target;
     }
@@ -71,10 +75,10 @@ public class ProxyFactory implements InvocationHandler {
         System.out.println(proxy.add(12, 345));
 
         //输出代理对象类的字节码到磁盘中，可以用反编译工具看到：
-        // 代理类继承Proxy实现了IService，重载了父类的方法并在其中调用InvocationHandler.invoke方法
+        // 代理类继承Proxy并实现了IService，重载了父类的方法并在其中调用InvocationHandler.invoke方法
         try {
             byte[] bytes = ProxyGenerator.generateProxyClass("$Proxy0", new Class[]{IService.class});
-            FileOutputStream os = new FileOutputStream("C:\\Users\\lenovo\\Desktop\\$Proxy0.class");
+            FileOutputStream os = new FileOutputStream(System.getProperty("user.home") + "\\Desktop\\$Proxy0.class");
             os.write(bytes);
             os.close();
         } catch (IOException e) {
