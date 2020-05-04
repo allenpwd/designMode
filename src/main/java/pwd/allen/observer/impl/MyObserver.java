@@ -14,6 +14,7 @@ public class MyObserver implements Observer<String> {
         this.name = name;
     }
 
+    @Override
     public void update(String s) {
         System.out.println(String.format("我是%s,我接收到了通知：%s", name, s));
     }

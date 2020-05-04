@@ -17,6 +17,7 @@ public class CommandA implements Command {
         this.receiver = receiver;
     }
 
+    @Override
     public void execute() {
         receiver.doSomethingA();
     }
