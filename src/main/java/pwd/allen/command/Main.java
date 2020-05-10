@@ -8,7 +8,7 @@ import pwd.allen.command.impl.CommandReceiverImpl;
  * @author 门那粒沙
  * @create 2019-05-22 21:43
  **/
-public class Client {
+public class Main {
 
     public static void main(String[] args) {
         //创建命令执行者

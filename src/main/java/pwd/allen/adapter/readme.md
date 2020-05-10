@@ -12,5 +12,5 @@
 - 由于 JAVA 至多继承一个类，所以至多只能适配一个适配者类，而且目标类必须是抽象类。
 
 #### 应用实例
-- java中的jdbc
+- java中的jdbc、类名含有Wrapper或者Decorator的
 - Spring AOP 模块对 BeforeAdvice、AfterAdvice、ThrowsAdvice三种通知类型的支持
